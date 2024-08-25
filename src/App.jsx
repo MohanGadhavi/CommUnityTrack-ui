@@ -1,17 +1,22 @@
 import { Button } from "@material-tailwind/react";
-import Login from "./pages/Login";
-import Registration from "./pages/Registration";
+import { Outlet } from "react-router-dom";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login/index";
+import Registration from './pages/Registration/index'
 
 function App() {
   return (
     <>
-      <div className="w-full py-8 px-5 bg-black text-white h-14 grid content-center ">
-        <h1 className="text-4xl font-bold">
-          Comm<span className="text-blue-600">Unity</span>Task
-        </h1>
-      </div>
-      <Login />
-      <Registration />
+    <Header/>
+      <Routes>
+        <Route index path="/" element={<Navigate to="/Login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route />
+      </Routes>
+      <Footer/>
     </>
   );
 }
