@@ -1,14 +1,20 @@
-import { Button } from "@material-tailwind/react";
-import Login from "./pages/Login";
-import Registration from "./pages/Registration";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login/index";
+import Registration from "./pages/Registration/index";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="h-screen">
+    <div className="min-h-screen relative">
       <Header isLogin />
-      <Login />
-      <Registration />
+      <Routes>
+        <Route index path="/" element={<Navigate to="/Login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route />
+      </Routes>
+      <Footer />
     </div>
   );
 }
