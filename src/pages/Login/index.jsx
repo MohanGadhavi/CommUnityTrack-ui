@@ -15,14 +15,14 @@ function Login() {
   return (
     <Card
       color="transparent"
-      shadow={true}
-      className="w-min mx-auto p-5 bg-gray-200 mt-10 border-2 border-gray-500 flex flex-col items-center"
+      shadow={false}
+      className="w-min mx-auto p-5 bg-gray-200 mt-10 border-2 border-gray-500 flex flex-col items-start drop-shadow-[6px_6px_5px_rgba(0,0,0,0.2)]"
     >
       <Typography variant="h4" color="blue-gray">
         Log in
       </Typography>
       <Typography color="gray" className="mt-1 font-normal">
-        JSN! Das Na Das
+        Welcome to CommUnity Track
       </Typography>
       <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
         <div className="mb-1 flex flex-col gap-6">
