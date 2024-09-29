@@ -34,14 +34,14 @@ function Header({ isLogin, heading }) {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <div className="w-full p-5 px-10 bg-[#1C1F21] text-[#f6f7eb] flex justify-between ">
+    <div className="w-full p-5 px-10 bg-[hsl(20,50,10)] text-white/85 flex justify-between ">
       {heading ? (
         <h1 className="text-4xl font-bold select-none">
           &#128075; hello! {heading}
         </h1>
       ) : (
         <h1 className="text-4xl font-bold select-none">
-          Comm<span className="text-[#ED6D5A]">Unity</span>Track
+          Comm<span className="text-[hsl(20,100,70)]">Unity</span>Track
         </h1>
       )}
       {isLogin && (

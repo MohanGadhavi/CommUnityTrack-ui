@@ -7,12 +7,12 @@ import HomePage from "./pages/HomePage";
 import { useState } from "react";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const colorPalette = ["#1C1F21", "#f6f7eb", "ED6D5A"];
   return (
-    <div className="min-h-screen relative">
+    <div className=" relative">
       <Header isLogin={isLogin} />
-      <div className=" h-screen py-6 ">
+      <div className=" min-h-screen py-6 ">
         <Routes>
           <Route index path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login setIsLogin={setIsLogin} />} />
