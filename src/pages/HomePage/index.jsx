@@ -16,6 +16,7 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import DataFeeder from "../../components/DataFeeder";
+import ToDo from "../../components/ToDo";
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("tasks");
@@ -27,10 +28,9 @@ export default function HomePage() {
     {
       label: "Tasks",
       value: "tasks",
-      extraInfo: "Personal Tasks",
+      extraInfo: "Tasks",
       icon: faListCheck,
-      desc: `Because it's about motivating the doers. Because I'm here
-            to follow my dreams and inspire other people to follow their dreams, too.`,
+      desc: <ToDo />,
     },
     {
       label: "Events",
@@ -120,7 +120,7 @@ export default function HomePage() {
               )
           )}
         </TabsHeader>
-        <TabsBody className="min-h-[50vh]  bg-[hsl(20,100,10)]/30">
+        <TabsBody className="min-h-[50vh]  bg-[hsl(20,100,10)]/10">
           {data.map(({ value, desc }) => (
             <TabPanel key={value} value={value} className="text-black text-lg">
               {desc}
@@ -132,7 +132,7 @@ export default function HomePage() {
       {/* Data Feeder */}
       {!showHidden && (
         <div
-          className=" fixed bottom-20 right-14 w-40 h-16 px-3 rounded-xl flex items-center justify-between gap-4  bg-[hsl(20,70,10)] text-[hsl(20,100,70)] hover:bg-[hsl(20,70,15)] hover:scale-105 transition-all ease-linear cursor-pointer "
+          className=" fixed z-10 bottom-20 right-14 w-40 h-16 px-3 rounded-xl flex items-center justify-between gap-4  bg-[hsl(20,70,10)] text-[hsl(20,100,70)] hover:bg-[hsl(20,70,15)] hover:scale-105 transition-all ease-linear cursor-pointer "
           onClick={() => {
             setShowHidden(true);
             setTimeout(() => {

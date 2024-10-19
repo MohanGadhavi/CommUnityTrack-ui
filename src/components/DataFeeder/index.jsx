@@ -58,7 +58,7 @@ export default function DataFeeder() {
             size="lg"
             className=" w-full px-2 py-1 border border-black/25 hover:border-black/30  rounded-[4px]"
           />
-          <DatePicker />
+          {/* <DatePicker /> */}
           <label className="block text-gray-700 text-sm font-bold">
             KK Name (Multi-select)
           </label>
