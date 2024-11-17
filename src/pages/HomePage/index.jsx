@@ -17,8 +17,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import DataFeeder from "../../components/DataFeeder";
-// import ToDo from "../../components/ToDo";
-import CustomKanban from "../../components/ToDo/index";
+import ToDo from "../../components/ToDo";
+// import CustomKanban from "../../components/ToDo/index";
 import DevCards from "../../components/Cards/DevCards";
 
 export default function HomePage() {
@@ -33,7 +33,7 @@ export default function HomePage() {
       value: "tasks",
       extraInfo: "Tasks",
       icon: faListCheck,
-      desc: <CustomKanban />,
+      desc: <ToDo />,
     },
     {
       label: "Events",
