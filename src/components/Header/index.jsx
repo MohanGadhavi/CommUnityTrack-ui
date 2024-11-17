@@ -34,14 +34,14 @@ function Header({ isLogin, heading }) {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <div className="w-full p-5 px-10 bg-[hsl(20,50,10)] text-white/85 flex justify-between ">
+    <div className="w-full py-3 px-10 bg-black text-white/85 flex justify-between ">
       {heading ? (
-        <h1 className="text-4xl font-bold select-none">
+        <h1 className="text-3xl font-bold select-none pt-1">
           &#128075; hello! {heading}
         </h1>
       ) : (
-        <h1 className="text-4xl font-bold select-none">
-          Comm<span className="text-[hsl(20,100,70)]">Unity</span>Track
+        <h1 className="text-3xl font-bold select-none pt-1">
+          Comm<span className="text-white">Unity</span>Track
         </h1>
       )}
       {isLogin && (
@@ -63,13 +63,15 @@ function Header({ isLogin, heading }) {
             </Button>
           </MenuHandler>
           <MenuList className="p-1">
-            {profileMenuItems.map(({ label }, key) => {
-              const isLastItem = key === profileMenuItems.length - 1;
+            {profileMenuItems.map(({ label }, i) => {
+              const isLastItem = i === profileMenuItems.length - 1;
               return (
                 <>
-                  {isLastItem && <hr className=" my-1 border-black/20 " />}
+                  {isLastItem && (
+                    <hr key={i} className=" my-1 border-black/20 " />
+                  )}
                   <MenuItem
-                    key={label}
+                    key={i}
                     onClick={closeMenu}
                     className={` gap-2 rounded ${
                       isLastItem
