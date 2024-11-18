@@ -18,6 +18,7 @@ import {
 import DataFeeder from "../../components/DataFeeder";
 import ToDo from "../../components/ToDo";
 import Event from "../../components/Event";
+import DevCards from "../../components/Cards/DevCards";
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("tasks");
@@ -69,8 +70,10 @@ export default function HomePage() {
       canHide: true,
     },
   ];
+
   return (
     <div className="px-5 ">
+      {/* <DevCards /> */}
       <Tabs value={activeTab} className={"   rounded-lg "}>
         <TabsHeader
           className=" p-2 bg-opacity-100 bg-black rounded-none h-14 text-white "
