@@ -14,7 +14,7 @@ const tasks = [
     },
     taskName: "Attend Meeting",
     taskDescription:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vel ipsa aliquam consequuntur porro expedita quae aperiam qui obcaecati aliquid hic quos ipsum sunt commodi perferendis, sapiente impedit necessitatibus? Sunt voluptatem expedita eum voluptatibus magnam incidunt dolorum, eaque, laudantium ipsam libero quod architecto non doloribus optio autem repudiandae, tempore accusantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nostrum qui deserunt nam unde aperiam a obcaecati aliquam, officiis soluta tempore ratione, debitis ab laboriosam recusandae. Ad deleniti, quae nostrum recusandae dolores quaerat velit magni, voluptatem eligendi officia veritatis placeat? Repellendus nam iure a. Pariatur aut tenetur saepe accusamus dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
     taskDueDate: "29 Sep",
   },
   {
@@ -60,7 +60,7 @@ const statusOptionList = [
   { name: "Completed", value: "completed" },
 ];
 
-const ToDo = () => {
+const Tasks = () => {
   const [expand, setExpand] = useState(-1);
 
   const statusSelectRefList = useRef([]);
@@ -74,6 +74,18 @@ const ToDo = () => {
 
   return (
     <div className="flex flex-col gap-4">
+      <div className=" flex justify-between items-center mb-2 gap-4 text-nowrap">
+        <button className="relative group hover:scale-95 overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-teal-50 border-2 border-teal-300 text-teal-900 w-full rounded-xl cursor-pointer transition-all duration-300 ">
+          <div className="absolute  inset-0 bg-teal-200 translate-y-full group-hover:translate-y-0 transition-all duration-300 "></div>
+          <p className="text-6xl font-extrabold opacity-90">14</p>
+          <p className="text-5xl opacity-70">Completed Task</p>
+        </button>
+        <button className="relative group hover:scale-95 overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-red-50  border-2 border-red-300 text-red-900  w-full rounded-xl cursor-pointer transition-all duration-300 ">
+          <div className="absolute  inset-0 bg-red-200 translate-y-full group-hover:translate-y-0 transition-all duration-300 "></div>
+          <p className="text-6xl font-extrabold  opacity-90">5</p>
+          <p className="text-5xl  opacity-70">Pending Task</p>
+        </button>
+      </div>
       {tasks.map((task, id) => (
         <motion.div
           key={id}
@@ -123,12 +135,12 @@ const ToDo = () => {
               </div>
               <motion.div
                 className={
-                  " text-left leading-6  line-clamp-1 max-h-[10rem] mt-1 " +
+                  "scrollbar-custom text-left leading-6  line-clamp-1 max-h-[10rem] mt-1 " +
                   (expand === id && " line-clamp-none ")
                 }
                 animate={{
                   height: expand === id ? "18rem" : "1.5rem",
-                  overflow: expand === id ? "visible" : "hidden",
+                  overflow: expand === id ? "auto" : "hidden",
                   display: expand === id ? "block" : "-webkit-box",
                   "-webkit-box-orient":
                     expand === id ? "horizontal" : "vertical",
@@ -189,4 +201,4 @@ const ToDo = () => {
   );
 };
 
-export default ToDo;
+export default Tasks;

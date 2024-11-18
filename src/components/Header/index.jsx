@@ -8,6 +8,7 @@ import {
   MenuList,
   Typography,
 } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
 // profile menu component
 const profileMenuItems = [
@@ -31,6 +32,8 @@ const profileMenuItems = [
 function Header({ isLogin, heading }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  const navigate = useNavigate();
+
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
@@ -44,56 +47,68 @@ function Header({ isLogin, heading }) {
           Comm<span className="text-white">Unity</span>Track
         </h1>
       )}
-      {isLogin && (
-        <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
-          <MenuHandler>
-            <Button
-              variant="text"
-              color="blue-gray"
-              className="flex items-center rounded-full p-0"
-            >
-              <Avatar
-                variant="circular"
-                size="md"
-                alt="profile_pic"
+      <div className="flex">
+        <ul className="flex gap-6 items-center mr-10 text-lg cursor-pointer select-none">
+          <li onClick={() => navigate("/tasks")}>Tasks</li>
+          <li onClick={() => navigate("/events")}>Events</li>
+          <li onClick={() => navigate("/dashboard")}>Dashboard</li>
+          <li onClick={() => navigate("/dashboard")}>My Activities</li>
+        </ul>
+        {isLogin && (
+          <Menu
+            open={isMenuOpen}
+            handler={setIsMenuOpen}
+            placement="bottom-end"
+          >
+            <MenuHandler>
+              <Button
+                variant="text"
                 color="blue-gray"
-                className=" p-0.5"
-                src="src\assets\profile_pic.png"
-              />
-            </Button>
-          </MenuHandler>
-          <MenuList className="p-1">
-            {profileMenuItems.map(({ label }, i) => {
-              const isLastItem = i === profileMenuItems.length - 1;
-              return (
-                <>
-                  {isLastItem && (
-                    <hr key={i} className=" my-1 border-black/20 " />
-                  )}
-                  <MenuItem
-                    key={i}
-                    onClick={closeMenu}
-                    className={` gap-2 rounded ${
-                      isLastItem
-                        ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                        : ""
-                    }`}
-                  >
-                    <Typography
-                      as="span"
-                      variant="small"
-                      className="font-normal"
-                      color={isLastItem ? "red" : "inherit"}
+                className="flex items-center rounded-full p-0"
+              >
+                <Avatar
+                  variant="circular"
+                  size="md"
+                  alt="profile_pic"
+                  color="blue-gray"
+                  className=" p-0.5"
+                  src="src\assets\profile_pic.png"
+                />
+              </Button>
+            </MenuHandler>
+            <MenuList className="p-1">
+              {profileMenuItems.map(({ label }, i) => {
+                const isLastItem = i === profileMenuItems.length - 1;
+                return (
+                  <>
+                    {isLastItem && (
+                      <hr key={i} className=" my-1 border-black/20 " />
+                    )}
+                    <MenuItem
+                      key={i}
+                      onClick={closeMenu}
+                      className={` gap-2 rounded ${
+                        isLastItem
+                          ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                          : ""
+                      }`}
                     >
-                      {label}
-                    </Typography>
-                  </MenuItem>
-                </>
-              );
-            })}
-          </MenuList>
-        </Menu>
-      )}
+                      <Typography
+                        as="span"
+                        variant="small"
+                        className="font-normal"
+                        color={isLastItem ? "red" : "inherit"}
+                      >
+                        {label}
+                      </Typography>
+                    </MenuItem>
+                  </>
+                );
+              })}
+            </MenuList>
+          </Menu>
+        )}
+      </div>
     </div>
   );
 }
