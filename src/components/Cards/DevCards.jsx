@@ -28,7 +28,7 @@ const Card = ({ title, subtitle, Icon, href }) => {
       href={href}
       className="w-full p-4 rounded border-[1px] border-s-blue-gray-50 relative overflow-hidden group bg-white"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-brown-800 to-blue-gray-100 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brown-800 to-brown-800/50 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300  " />
 
       <h3 className="font-medium text-lg text-gray-900 group-hover:text-white relative z-10 duration-300">
         {title}

@@ -4,6 +4,28 @@
 
 html,
 body {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
 
+.scrollbar-custom {
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-custom::-webkit-scrollbar-button {
+  display: none;
+}
+
+.scrollbar-custom::-webkit-scrollbar-corner {
+  display: none;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+}
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }

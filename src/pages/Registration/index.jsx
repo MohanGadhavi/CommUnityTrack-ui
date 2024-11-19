@@ -12,13 +12,13 @@ function Registration() {
     <Card
       color="transparent"
       shadow={false}
-      className="w-min mx-auto p-5 bg-gray-200 mt-10 border-2 border-gray-500 flex flex-col items-start drop-shadow-[6px_6px_5px_rgba(0,0,0,0.2)]"
+      className="w-min mx-auto p-5 px-8 bg-gray-200 mt-10 border-2 border-gray-500 flex flex-col items-start drop-shadow-[6px_6px_5px_rgba(0,0,0,0.2)]"
     >
       <Typography variant="h4" color="blue-gray">
-        Sign Up
+        SIGN UP
       </Typography>
       <Typography color="gray" className="mt-1 font-normal"></Typography>
-      <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+      <form className="mt-5 mb-2 w-80 max-w-screen-lg sm:w-96">
         <div className="mb-1 flex flex-col gap-6">
           <Typography variant="h6" color="blue-gray" className="-mb-3">
             Full Name

@@ -60,7 +60,7 @@ export default function DataFeeder() {
           />
           {/* <DatePicker /> */}
           <label className="block text-gray-700 text-sm font-bold">
-            Karyker Name (Multi-select)
+            Karyakar Name (Multi-select)
           </label>
           <Select isMulti options={KKOptions} className="select" />
           <label className="block text-gray-700 text-sm font-bold">

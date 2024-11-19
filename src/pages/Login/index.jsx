@@ -21,12 +21,10 @@ function Login({ setIsLogin }) {
     <Card
       color="transparent"
       shadow={false}
-      className="w-min mx-auto p-5 px-10 bg-gray-100 border-2 border-[#ED6D5A]/80 flex flex-col items-start drop-shadow-2xl "
+      className="w-min mx-auto p-5 px-10 bg-gray-100 border-2 border-black flex flex-col items-start drop-shadow-2xl "
     >
-      <Typography variant="h4" color="blue-gray">
-        Log in
-      </Typography>
-      <Typography color="gray" className="mt-1 font-normal">
+      <Typography variant="h4">Log in</Typography>
+      <Typography className="mt-1 font-normal">
         Welcome to CommUnity Track
       </Typography>
       <form
@@ -34,7 +32,7 @@ function Login({ setIsLogin }) {
         onSubmit={handleSubmit}
       >
         <div className="mb-1 flex flex-col gap-6">
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" className="-mb-3">
             Username
           </Typography>
           <Input
@@ -46,7 +44,7 @@ function Login({ setIsLogin }) {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" className="-mb-3">
             Password
           </Typography>
           <Input
@@ -60,7 +58,6 @@ function Login({ setIsLogin }) {
           />
         </div>
         <Checkbox
-          color="deep-orange"
           label={
             <Typography
               variant="small"
@@ -78,13 +75,7 @@ function Login({ setIsLogin }) {
           }
           containerProps={{ className: "-ml-2.5" }}
         />
-        <Button
-          type="submit"
-          className="mt-6"
-          color="deep-orange"
-          variant="gradient"
-          fullWidth
-        >
+        <Button type="submit" className="mt-6" variant="gradient" fullWidth>
           Log in
         </Button>
         {/* <Typography color="gray" className="mt-4 text-center font-normal">
