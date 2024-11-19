@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const tasks = {
+  overall_tasks: 31,
   completed_tasks: 23,
   pending_task: 8,
+  upComming_tasks: 1,
   task_list: [
     {
       taskId: 0,
@@ -18,6 +20,7 @@ const tasks = {
       taskName: "Attend Meeting",
       taskDescription:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vel ipsa aliquam consequuntur porro expedita quae aperiam qui obcaecati aliquid hic quos ipsum sunt commodi perferendis, sapiente impedit necessitatibus? Sunt voluptatem expedita eum voluptatibus magnam incidunt dolorum, eaque, laudantium ipsam libero quod architecto non doloribus optio autem repudiandae, tempore accusantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nostrum qui deserunt nam unde aperiam a obcaecati aliquam, officiis soluta tempore ratione, debitis ab laboriosam recusandae. Ad deleniti, quae nostrum recusandae dolores quaerat velit magni, voluptatem eligendi officia veritatis placeat? Repellendus nam iure a. Pariatur aut tenetur saepe accusamus dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskStartDate: "29 Sep",
       taskDueDate: "29 Sep",
     },
     {
@@ -30,6 +33,7 @@ const tasks = {
       taskName: "Have a Lunch",
       taskDescription:
         " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskStartDate: "29 Sep",
       taskDueDate: "09 Sep",
     },
     {
@@ -42,6 +46,7 @@ const tasks = {
       taskName: "Have a Lunch",
       taskDescription:
         " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskStartDate: "29 Sep",
       taskDueDate: "09 Sep",
     },
     {
@@ -54,6 +59,7 @@ const tasks = {
       taskName: "Have a Lunch",
       taskDescription:
         " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskStartDate: "29 Sep",
       taskDueDate: "09 Sep",
     },
   ],
