@@ -4,56 +4,60 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
-const tasks = [
-  {
-    taskId: 0,
-    status: "completed",
-    event: {
-      eventId: 0,
-      eventName: "Meeting",
+const tasks = {
+  completed_tasks: 23,
+  pending_task: 8,
+  task_list: [
+    {
+      taskId: 0,
+      status: "completed",
+      event: {
+        eventId: 0,
+        eventName: "Meeting",
+      },
+      taskName: "Attend Meeting",
+      taskDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vel ipsa aliquam consequuntur porro expedita quae aperiam qui obcaecati aliquid hic quos ipsum sunt commodi perferendis, sapiente impedit necessitatibus? Sunt voluptatem expedita eum voluptatibus magnam incidunt dolorum, eaque, laudantium ipsam libero quod architecto non doloribus optio autem repudiandae, tempore accusantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nostrum qui deserunt nam unde aperiam a obcaecati aliquam, officiis soluta tempore ratione, debitis ab laboriosam recusandae. Ad deleniti, quae nostrum recusandae dolores quaerat velit magni, voluptatem eligendi officia veritatis placeat? Repellendus nam iure a. Pariatur aut tenetur saepe accusamus dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskDueDate: "29 Sep",
     },
-    taskName: "Attend Meeting",
-    taskDescription:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vel ipsa aliquam consequuntur porro expedita quae aperiam qui obcaecati aliquid hic quos ipsum sunt commodi perferendis, sapiente impedit necessitatibus? Sunt voluptatem expedita eum voluptatibus magnam incidunt dolorum, eaque, laudantium ipsam libero quod architecto non doloribus optio autem repudiandae, tempore accusantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nostrum qui deserunt nam unde aperiam a obcaecati aliquam, officiis soluta tempore ratione, debitis ab laboriosam recusandae. Ad deleniti, quae nostrum recusandae dolores quaerat velit magni, voluptatem eligendi officia veritatis placeat? Repellendus nam iure a. Pariatur aut tenetur saepe accusamus dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-    taskDueDate: "29 Sep",
-  },
-  {
-    taskId: 0,
-    status: "incomplete",
-    event: {
-      eventId: 1,
-      eventName: "Lunch",
+    {
+      taskId: 0,
+      status: "incomplete",
+      event: {
+        eventId: 1,
+        eventName: "Lunch",
+      },
+      taskName: "Have a Lunch",
+      taskDescription:
+        " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskDueDate: "09 Sep",
     },
-    taskName: "Have a Lunch",
-    taskDescription:
-      " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-    taskDueDate: "09 Sep",
-  },
-  {
-    taskId: 0,
-    status: "incomplete",
-    event: {
-      eventId: 1,
-      eventName: "Lunch",
+    {
+      taskId: 0,
+      status: "incomplete",
+      event: {
+        eventId: 1,
+        eventName: "Lunch",
+      },
+      taskName: "Have a Lunch",
+      taskDescription:
+        " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskDueDate: "09 Sep",
     },
-    taskName: "Have a Lunch",
-    taskDescription:
-      " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-    taskDueDate: "09 Sep",
-  },
-  {
-    taskId: 0,
-    status: "incomplete",
-    event: {
-      eventId: 1,
-      eventName: "Lunch",
+    {
+      taskId: 0,
+      status: "incomplete",
+      event: {
+        eventId: 1,
+        eventName: "Lunch",
+      },
+      taskName: "Have a Lunch",
+      taskDescription:
+        " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      taskDueDate: "09 Sep",
     },
-    taskName: "Have a Lunch",
-    taskDescription:
-      " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-    taskDueDate: "09 Sep",
-  },
-];
+  ],
+};
 
 const statusOptionList = [
   { name: "Incomplete", value: "incomplete" },
@@ -75,18 +79,22 @@ const Tasks = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className=" flex justify-between items-center mb-2 gap-4 text-nowrap">
-        <button className="relative group hover:scale-95 overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-teal-50 border-2 border-teal-300 text-teal-900 w-full rounded-xl cursor-pointer transition-all duration-300 ">
+        <button className="relative group hover:scale-[0.97] overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-teal-50 border-2 border-teal-300 text-teal-900 w-full rounded-xl cursor-pointer transition-all duration-300 ">
           <div className="absolute  inset-0 bg-teal-200 translate-y-full group-hover:translate-y-0 transition-all duration-300 "></div>
-          <p className="text-6xl font-extrabold opacity-90">14</p>
+          <p className="text-6xl font-extrabold opacity-90">
+            {tasks.completed_tasks}
+          </p>
           <p className="text-5xl opacity-70">Completed Task</p>
         </button>
-        <button className="relative group hover:scale-95 overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-red-50  border-2 border-red-300 text-red-900  w-full rounded-xl cursor-pointer transition-all duration-300 ">
+        <button className="relative group hover:scale-[0.97] overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-red-50  border-2 border-red-300 text-red-900  w-full rounded-xl cursor-pointer transition-all duration-300 ">
           <div className="absolute  inset-0 bg-red-200 translate-y-full group-hover:translate-y-0 transition-all duration-300 "></div>
-          <p className="text-6xl font-extrabold  opacity-90">5</p>
+          <p className="text-6xl font-extrabold  opacity-90">
+            {tasks.pending_task}
+          </p>
           <p className="text-5xl  opacity-70">Pending Task</p>
         </button>
       </div>
-      {tasks.map((task, id) => (
+      {tasks.task_list.map((task, id) => (
         <motion.div
           key={id}
           className="relative w-full px-4 py-3 group flex text-lg border border-black/20  bg-purple-200  rounded-xl cursor-pointer shadow-md"
