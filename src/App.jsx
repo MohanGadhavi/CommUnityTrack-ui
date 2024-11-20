@@ -13,22 +13,33 @@ function App() {
   const [isLogin, setIsLogin] = useState(true);
   const colorPalette = ["#1C1F21", "#f6f7eb", "ED6D5A"];
   return (
-    <div className=" relative">
-      <Header isLogin={isLogin} />
-      <div className=" min-h-screen py-6 px-6 ">
+    <div className=" flex">
+      {isLogin ? (
+        <>
+          <Header isLogin={isLogin} />
+          <div className=" min-h-screen w-full bg-gray-50 ">
+            <Routes>
+              <Route index path="/" element={<Navigate to="/home" />} />
+              <Route
+                path="/login"
+                element={<Login setIsLogin={setIsLogin} />}
+              />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/tasks" element={<Tasks />} />
+              <Route path="/events" element={<Event />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/registration" element={<Registration />} />
+              {/* <Route path="/home" element={<HomePage />} /> */}
+            </Routes>
+          </div>
+          {/* <Footer /> */}
+        </>
+      ) : (
         <Routes>
           <Route index path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login setIsLogin={setIsLogin} />} />
-
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/tasks" element={<Tasks />} />
-          <Route path="/events" element={<Event />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/home" element={<HomePage />} /> */}
-          <Route path="/registration" element={<Registration />} />
         </Routes>
-      </div>
-      <Footer />
+      )}
     </div>
   );
 }

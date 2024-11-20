@@ -21,7 +21,7 @@ function Login({ setIsLogin }) {
     <Card
       color="transparent"
       shadow={false}
-      className="w-min mx-auto p-5 px-10 bg-gray-100 border-2 border-black flex flex-col items-start drop-shadow-2xl "
+      className="w-min mx-auto mt-10 p-5 px-10 bg-gray-100 border-2 border-black flex flex-col items-start drop-shadow-2xl "
     >
       <Typography variant="h4">Log in</Typography>
       <Typography className="mt-1 font-normal">

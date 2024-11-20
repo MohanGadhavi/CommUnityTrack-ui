@@ -8,59 +8,59 @@ const tasks = {
   overall_tasks: 31,
   completed_tasks: 23,
   pending_task: 8,
-  upComming_tasks: 1,
+  upcomming_tasks: 3,
   task_list: [
     {
-      taskId: 0,
+      task_id: 0,
       status: "completed",
       event: {
-        eventId: 0,
-        eventName: "Meeting",
+        event_id: 0,
+        event_name: "Meeting",
       },
-      taskName: "Attend Meeting",
-      taskDescription:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vel ipsa aliquam consequuntur porro expedita quae aperiam qui obcaecati aliquid hic quos ipsum sunt commodi perferendis, sapiente impedit necessitatibus? Sunt voluptatem expedita eum voluptatibus magnam incidunt dolorum, eaque, laudantium ipsam libero quod architecto non doloribus optio autem repudiandae, tempore accusantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nostrum qui deserunt nam unde aperiam a obcaecati aliquam, officiis soluta tempore ratione, debitis ab laboriosam recusandae. Ad deleniti, quae nostrum recusandae dolores quaerat velit magni, voluptatem eligendi officia veritatis placeat? Repellendus nam iure a. Pariatur aut tenetur saepe accusamus dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
+      task_name: "Attend Meeting",
+      task_description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vel ipsa aliquam consequuntur porro expedita quae aperiam qui obcaecati aliquid hic quos ipsum sunt commodi perferendis, sapiente impedit necessitatibus? Sunt voluptatem expedita eum voluptatibus magnam incidunt dolorum, eaque, laudantium ipsam libero quod architecto non doloribus optio autem repudiandae, tempore accusantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nostrum qu_s deserunt nam unde aperiam a obcaecati aliquam, officiis soluta tempore ratione, debitis ab la_doriosam recusandae. Ad deleniti, quae nostrum recusandae dolores quaerat velit magni, voluptatem eligendi officia veritatis placeat? Repellendus nam iure a. Pariatur aut tenetur saepe accusamus dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magntask_i consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
       taskStartDate: "29 Sep",
       taskDueDate: "29 Sep",
     },
     {
-      taskId: 0,
+      task_id: 0,
       status: "incomplete",
       event: {
-        eventId: 1,
-        eventName: "Lunch",
+        event_id: 1,
+        event_name: "Lunch",
       },
-      taskName: "Have a Lunch",
-      taskDescription:
+      task_name: "Have a Lunch",
+      task_description:
         " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-      taskStartDate: "29 Sep",
-      taskDueDate: "09 Sep",
+      task_startDate: "29 Sep",
+      task_dueDate: "09 Sep",
     },
     {
-      taskId: 0,
-      status: "incomplete",
+      task_id: 0,
+      task_status: "incomplete",
       event: {
-        eventId: 1,
-        eventName: "Lunch",
+        event_id: 1,
+        event_name: "Lunch",
       },
-      taskName: "Have a Lunch",
-      taskDescription:
+      task_name: "Have a Lunch",
+      task_description:
         " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-      taskStartDate: "29 Sep",
-      taskDueDate: "09 Sep",
+      task_startDate: "29 Sep",
+      task_dueDate: "09 Sep",
     },
     {
-      taskId: 0,
-      status: "incomplete",
+      task_id: 0,
+      task_status: "incomplete",
       event: {
-        eventId: 1,
-        eventName: "Lunch",
+        event_id: 1,
+        event_name: "Lunch",
       },
-      taskName: "Have a Lunch",
-      taskDescription:
+      task_name: "Have a Lunch",
+      task_description:
         " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-      taskStartDate: "29 Sep",
-      taskDueDate: "09 Sep",
+      task_startDate: "29 Sep",
+      task_dueDate: "09 Sep",
     },
   ],
 };
@@ -85,19 +85,26 @@ const Tasks = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className=" flex justify-between items-center mb-2 gap-4 text-nowrap">
-        <button className="relative group hover:scale-[0.97] overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-teal-50 border-2 border-teal-300 text-teal-900 w-full rounded-xl cursor-pointer transition-all duration-300 ">
+        <button className="relative group hover:scale-[0.97] overflow-hidden px-4 py-4 flex items-center justify-start gap-4 bg-teal-50 border-2 border-teal-300 text-teal-900 w-full rounded-xl cursor-pointer transition-all duration-300 ">
           <div className="absolute  inset-0 bg-teal-200 translate-y-full group-hover:translate-y-0 transition-all duration-300 "></div>
           <p className="text-6xl font-extrabold opacity-90">
             {tasks.completed_tasks}
           </p>
-          <p className="text-5xl opacity-70">Completed Task</p>
+          <p className="text-4xl font-semibold opacity-70">Completed Task</p>
         </button>
-        <button className="relative group hover:scale-[0.97] overflow-hidden px-6 py-6 flex items-end justify-start gap-6 bg-red-50  border-2 border-red-300 text-red-900  w-full rounded-xl cursor-pointer transition-all duration-300 ">
+        <button className="relative group hover:scale-[0.97] overflow-hidden px-4 py-4 flex items-center justify-start gap-4 bg-red-50  border-2 border-red-300 text-red-900  w-full rounded-xl cursor-pointer transition-all duration-300 ">
           <div className="absolute  inset-0 bg-red-200 translate-y-full group-hover:translate-y-0 transition-all duration-300 "></div>
           <p className="text-6xl font-extrabold  opacity-90">
             {tasks.pending_task}
           </p>
-          <p className="text-5xl  opacity-70">Pending Task</p>
+          <p className="text-4xl font-semibold  opacity-70 ">Pending Task</p>
+        </button>
+        <button className="relative group hover:scale-[0.97] overflow-hidden px-4 py-4 flex items-center justify-start gap-4 bg-red-50  border-2 border-red-300 text-red-900  w-full rounded-xl cursor-pointer transition-all duration-300 ">
+          <div className="absolute  inset-0 bg-red-200 translate-y-full group-hover:translate-y-0 transition-all duration-300 "></div>
+          <p className="text-6xl font-extrabold  opacity-90">
+            {tasks.pending_task}
+          </p>
+          <p className="text-4xl font-semibold  opacity-70 ">Upcoming Task</p>
         </button>
       </div>
       {tasks.task_list.map((task, id) => (
@@ -113,10 +120,10 @@ const Tasks = () => {
               <div className="-mt-[6px] -ml-3">
                 <Checkbox
                   onClick={(e) => handleSelectEle(e, id)}
-                  title={task.status}
+                  title={task.task_status}
                   ripple={false}
                   className="border-2 border-gray-900"
-                  checked={task.status === "completed"}
+                  checked={task.task_status === "completed"}
                   onChange={() => {}}
                   // iconProps={{ className: "top-[-6px] left-[10px]" }}
                 />
@@ -138,13 +145,13 @@ const Tasks = () => {
             <div className="w-[90%]">
               <div className="flex items-center">
                 <h3 className="text-[26px] leading-8 font-semibold truncate">
-                  {task.taskName}
+                  {task.task_name}
                 </h3>
                 <div
-                  title={`Event : ${task.event.eventName}`}
+                  title={`Event : ${task.event.event_name}`}
                   className=" ml-4  px-6 py-1 bg-white rounded-full text-sm font-semibold opacity-70 hover:opacity-90 hover:px-7 hover:border-2 transition-all ease-linear"
                 >
-                  {task.event.eventName}
+                  {task.event.event_name}
                 </div>
               </div>
               <motion.div
@@ -175,11 +182,11 @@ const Tasks = () => {
                   "-webkit-line-clamp ": { delay: 1 },
                 }}
               >
-                {task.taskDescription}
+                {task.task_description}
               </motion.div>
               <p className="mt-2">
                 Due Date:{" "}
-                <span className="font-semibold">{task.taskDueDate}</span>
+                <span className="font-semibold">{task.task_dueDate}</span>
               </p>
             </div>
           </div>
@@ -196,10 +203,10 @@ const Tasks = () => {
               labelProps={{
                 className: " text-xs tracking-wider ",
               }}
-              value={task.status}
+              value={task.task_status}
               // onChange={() => {}}
-              error={task.status === "incomplete"}
-              success={task.status === "completed"}
+              error={task.task_status === "incomplete"}
+              success={task.task_status === "completed"}
             >
               {statusOptionList.map((option, i) => (
                 <Option key={i} value={option.value} className=" text-base ">
