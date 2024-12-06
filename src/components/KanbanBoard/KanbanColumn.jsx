@@ -126,7 +126,7 @@ export default function KanbanColumn({
 
   return (
     <div
-      className={`w-full  rounded-md ${columnColor} border border-gray-300 ${
+      className={` p-2  rounded-md ${columnColor} border border-gray-300 ${
         active ? `bg-opacity-50` : `bg-opacity-20`
       }  `}
     >
@@ -148,7 +148,9 @@ export default function KanbanColumn({
       >
         {filteredCards.map((c) => {
           return (
-            <KanbanCard key={c.id} {...c} handleDragStart={handleDragStart} />
+            <div className="  max-w-[15rem] ">
+              <KanbanCard key={c.id} {...c} handleDragStart={handleDragStart} />
+            </div>
           );
         })}
         <KanbanDropIndicator beforeId={null} column={column} />
