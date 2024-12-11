@@ -23,47 +23,10 @@ const tasks = {
       taskStartDate: "29 Sep",
       taskDueDate: "29 Sep",
     },
-    {
-      task_id: 0,
-      status: "incomplete",
-      event: {
-        event_id: 1,
-        event_name: "Lunch",
-      },
-      task_name: "Have a Lunch",
-      task_description:
-        " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-      task_startDate: "29 Sep",
-      task_dueDate: "09 Sep",
-    },
-    {
-      task_id: 0,
-      task_status: "incomplete",
-      event: {
-        event_id: 1,
-        event_name: "Lunch",
-      },
-      task_name: "Have a Lunch",
-      task_description:
-        " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-      task_startDate: "29 Sep",
-      task_dueDate: "09 Sep",
-    },
-    {
-      task_id: 0,
-      task_status: "incomplete",
-      event: {
-        event_id: 1,
-        event_name: "Lunch",
-      },
-      task_name: "Have a Lunch",
-      task_description:
-        " Eat Healty, Leave Healthy Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequuntur exercitationem, tempora necessitatibus quaerat enim veniam error harum magni consequatur pariatur quo minima tempore dolores hic perferendis nihil possimus quisquam ipsa non distinctio sint nisi nesciunt. Consequuntur, nemo doloribus. Voluptatibus fugit, animi voluptas nisi soluta cupiditate nulla deserunt rem ratione. ",
-      task_startDate: "29 Sep",
-      task_dueDate: "09 Sep",
-    },
+
   ],
 };
+
 
 const statusOptionList = [
   { name: "Incomplete", value: "incomplete" },
