@@ -20,10 +20,10 @@ function App() {
           <div className=" min-h-screen w-full bg-gray-50 ">
             <Routes>
               <Route index path="/" element={<Navigate to="/home" />} />
-              <Route
+              {/* <Route
                 path="/login"
                 element={<Login setIsLogin={setIsLogin} />}
-              />
+              /> */}
               <Route path="/home" element={<HomePage />} />
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/events" element={<Event />} />

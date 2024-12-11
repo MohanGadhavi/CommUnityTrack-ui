@@ -144,7 +144,7 @@ function HomeCards({
         open={dialogOpen}
         handler={handleDialogBox}
         size="xl"
-        className="jjjjjjjjjjjjjjjj h-[80%] px-2 "
+        className="h-[80%] px-2 "
       >
         <DialogHeader className="pb-2 flex justify-between items-center border-b border-gray-300">
           <p className="text-lg">
