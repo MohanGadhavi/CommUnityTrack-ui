@@ -8,7 +8,6 @@ import {
   faCalendarDays,
   faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import KanbanBoard from "../../components/KanbanBoard";
 
 // Example data
 const data = [
@@ -70,7 +69,7 @@ const data = [
   },
 ];
 
-const Tasks = () => {
+const TaskTable = () => {
   // Memoize the columns definition to avoid unnecessary recalculations
   const columns = useMemo(
     () => [
@@ -132,16 +131,9 @@ const Tasks = () => {
 
   return (
     <>
-      <div className="h-14 py-2 px-4 border-b flex items-center gap-2 bg-gray-50 sticky top-0">
-        <FontAwesomeIcon icon={faCheckSquare} className="text-sm" />
-        <p className="pt-[2px]">Tasks</p>
-      </div>
-      <div className="p-3">
-        <KanbanBoard />
-      </div>
-      {/* <MaterialReactTable table={table} />; */}
+      <MaterialReactTable table={table} />;
     </>
   );
 };
 
-export default Tasks;
+export default TaskTable;

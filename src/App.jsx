@@ -10,7 +10,7 @@ import Event from "./pages/Events";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const colorPalette = ["#1C1F21", "#f6f7eb", "ED6D5A"];
   return (
     <div className=" flex">

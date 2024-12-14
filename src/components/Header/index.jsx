@@ -14,12 +14,8 @@ import {
   faAngleDown,
   faBell,
   faChartSimple,
-  faCheckDouble,
   faHome,
   faTableColumns,
-  faCalendar,
-  faCalendarCheck,
-  faCalendarDay,
   faCalendarDays,
   faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
@@ -104,7 +100,7 @@ function Header({ isLogin, heading }) {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <div className=" w-[25%] min-w-fit h-screen border border-r-gray-400 shadow-md sticky top-0">
+    <div className=" min-w-72  h-screen border border-r-gray-400 shadow-md sticky top-0">
       {/* Sidebar Header */}
       <div className=" h-14 p-2 flex items-center justify-between border-b ">
         <div className=" px-2 py-1 flex items-center gap-3 text-xl text-purple-600 hover:bg-gray-100 rounded-md cursor-pointer">

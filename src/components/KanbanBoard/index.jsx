@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import KanbanColumn from "./kanbanColumn";
+import KanbanColumn from "./KanbanColumn";
 // import { FaFire } from "react-icons/fa";
 
 const tasks = [
@@ -179,7 +179,7 @@ const Board = () => {
 
 export default function KanbanBoard() {
   return (
-    <div className="w-full max-w-full bg-gray-100">
+    <div className="w-full bg-gray-100">
       <Board />
     </div>
   );
