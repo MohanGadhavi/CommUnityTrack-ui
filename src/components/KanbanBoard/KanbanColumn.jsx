@@ -127,12 +127,12 @@ export default function KanbanColumn({
   return (
     <div
       className={`w-full  rounded-md ${columnColor} border border-gray-300 ${
-        active ? `bg-opacity-50` : `bg-opacity-20`
+        active ? `bg-opacity-20` : `bg-opacity-10`
       }  `}
     >
       <div className=" p-2 flex items-center justify-between border-b border-gray-500  ">
         <h3
-          className={`font-medium ${columnColor} bg-opacity-80 px-3 rounded-md text-black`}
+          className={`font-medium ${columnColor} bg-opacity-60 px-3 rounded-sm text-black`}
         >
           {title}
         </h3>

@@ -1,38 +1,19 @@
 import React, { useRef, useState } from "react";
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-  Button,
-} from "@material-tailwind/react";
+import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCalendarDay,
-  faCalendarWeek,
   faChartSimple,
-  faCheckCircle,
   faCheckDouble,
-  faCheckSquare,
-  faCheckToSlot,
   faClockRotateLeft,
   faDownLeftAndUpRightToCenter,
   faEllipsis,
   faFilePen,
-  faGear,
   faHome,
   faListCheck,
-  faPlus,
   faUpRightAndDownLeftFromCenter,
   faUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import DataFeeder from "../../components/DataFeeder";
-import DevCards from "../../components/Cards/DevCards";
 import Tasks from "../Tasks";
 import Events from "../Events";
 import DoughnutChart from "../../components/Charts/DoughnutChart";

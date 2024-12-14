@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import KanbanDropIndicator from "./kanbanDropIndicator";
-import { faFlag, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarDay,
+  faFlag,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
+import { Dialog, DialogBody } from "@material-tailwind/react";
+import TaskCard from "../TaskCard";
 
+const tags = ["Meeting", "Urgent", "stayFocused"];
 export default function KanbanCard({ title, id, column, handleDragStart }) {
-  const tags = ["Meeting", "Urgent", "stayFocused"];
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleOpenDialog = () => setOpenDialog(!openDialog);
 
   return (
     <>
       <KanbanDropIndicator beforeId={id} column={column} />
       <motion.div
+        onClick={handleOpenDialog}
         layout
         layoutId={id}
         draggable="true"
@@ -30,7 +40,7 @@ export default function KanbanCard({ title, id, column, handleDragStart }) {
           <hr />
           <div className="flex items-center gap-2">
             <FontAwesomeIcon
-              icon={faCalendar}
+              icon={faCalendarDay}
               className="text-xs text-gray-700"
             />
             <span>-</span>
@@ -38,7 +48,10 @@ export default function KanbanCard({ title, id, column, handleDragStart }) {
           </div>
           <hr />
           <div className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faFlag} className="text-xs text-gray-700" />
+            <FontAwesomeIcon
+              icon={faFlag}
+              className="text-xs text-gray-700 text-red-700"
+            />
             <span>-</span>
             <p className=" px-3 rounded-lg text-center text-xs bg-red-400 bg-opacity-40">
               Important
@@ -57,6 +70,11 @@ export default function KanbanCard({ title, id, column, handleDragStart }) {
           </div>
         </div>
       </motion.div>
+      <Dialog open={openDialog} handler={handleOpenDialog} size="xl">
+        <DialogBody className="p-0">
+          <TaskCard title={title} />
+        </DialogBody>
+      </Dialog>
     </>
   );
 }
