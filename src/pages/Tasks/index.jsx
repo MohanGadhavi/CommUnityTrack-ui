@@ -133,7 +133,7 @@ const Tasks = () => {
   return (
     <>
       <div className="h-14 py-2 px-4 border-b flex items-center gap-2 bg-gray-50 sticky top-0">
-        <FontAwesomeIcon icon={faCheckSquare} className="text-sm" />
+        <FontAwesomeIcon icon={faCheckSquare} className="text-base" />
         <p className="pt-[2px]">Tasks</p>
       </div>
       <div className="p-3">

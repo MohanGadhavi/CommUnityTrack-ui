@@ -48,10 +48,7 @@ export default function KanbanCard({ title, id, column, handleDragStart }) {
           </div>
           <hr />
           <div className="flex items-center gap-2">
-            <FontAwesomeIcon
-              icon={faFlag}
-              className="text-xs text-gray-700 text-red-700"
-            />
+            <FontAwesomeIcon icon={faFlag} className="text-xs text-red-700" />
             <span>-</span>
             <p className=" px-3 rounded-lg text-center text-xs bg-red-400 bg-opacity-40">
               Important

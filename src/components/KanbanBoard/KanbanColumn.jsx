@@ -122,8 +122,6 @@ export default function KanbanColumn({
   };
 
   const filteredCards = cards.filter((c) => c.column === column);
-  console.log("columnColorrrrrrrrrrrrrrrrrrrrrrrrrr ", columnColor);
-
   return (
     <div
       className={` p-2  rounded-md ${columnColor} border border-gray-300 ${

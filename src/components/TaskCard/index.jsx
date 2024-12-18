@@ -1,11 +1,23 @@
-import { faCalendar, faUser } from "@fortawesome/free-regular-svg-icons";
-import { faBullseye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendar,
+  faFlag,
+  faUser,
+} from "@fortawesome/free-regular-svg-icons";
+import { faBullseye, faLink, faTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  Popover,
+  PopoverContent,
+  PopoverHandler,
+} from "@material-tailwind/react";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { DayPicker, getDefaultClassNames } from "react-day-picker";
 import "react-day-picker/style.css";
 
 import Select from "react-select";
+import DatePicker from "../core/DatePicker";
+import TagSelector from "../core/TagSelector";
 // import "react-day-picker/style.css";
 
 const colourOptions = [
@@ -25,11 +37,21 @@ const statusOptions = [
   { value: "inprogress", label: "In Progress" },
   { value: "done", label: "Done" },
 ];
+const priorityOptions = [
+  { value: "normal", label: "Normal" },
+  { value: "high", label: "High" },
+  { value: "urgent", label: "Urgent" },
+];
 
 export default function index({ title }) {
+  const [toggleDatePicker, setToggleDatePicker] = useState(false);
   const [selected, setSelected] = useState();
 
   const defaultClassNames = getDefaultClassNames();
+
+  useEffect(() => {
+    console.log("Date::::: ", selected);
+  }, [selected]);
 
   return (
     <div className="w-full p-4 text-black ">
@@ -42,14 +64,33 @@ export default function index({ title }) {
         ab quasi! Reiciendis a consequuntur consectetur repudiandae ea fugit
         inventore, nulla voluptatibus quisquam esse aliquam, provident atque?
       </p>
-      <div className="grid grid-cols-2 mt-6 bg-gray-200 py-2 px-4 rounded-lg">
-        <div className="status flex items-center gap-5">
-          <p className="flex items-center gap-2">
+      <div className=" task-info grid grid-cols-2 mt-6 bg-gray-200 py-2 px-4 rounded-lg gap-4">
+        <div className="status flex items-center">
+          <p className="flex items-center gap-2 w-32">
             <FontAwesomeIcon
               icon={faBullseye}
               className="text-base text-gray-600 -mt-[1px] "
             />{" "}
             <span>Status</span>
+          </p>
+          <div className="min-w-52">
+            <Select
+              defaultValue={statusOptions[0]}
+              name="status"
+              //   isClearable
+              options={statusOptions}
+              className="basic-multi-select"
+              classNamePrefix="select"
+            />
+          </div>
+        </div>
+        <div className="relationship flex items-center">
+          <p className="flex items-center gap-2 w-32">
+            <FontAwesomeIcon
+              icon={faLink}
+              className="text-base text-gray-600 -mt-[1px] "
+            />{" "}
+            <span>Relationship</span>
           </p>
           <div className="min-w-52">
             {/* <Select
@@ -66,7 +107,7 @@ export default function index({ title }) {
             </Select> */}
             <Select
               defaultValue={statusOptions[0]}
-              name="colors"
+              name="status"
               //   isClearable
               options={statusOptions}
               className="basic-multi-select"
@@ -74,8 +115,49 @@ export default function index({ title }) {
             />
           </div>
         </div>
-        <div className="status flex items-center gap-5">
-          <p className="flex items-center gap-2">
+        <div className="dates flex items-center ">
+          <p className="flex items-center gap-2 w-32">
+            <FontAwesomeIcon
+              icon={faCalendar}
+              className="text-base text-gray-600 -mt-[1px] "
+            />
+            <span>Dates</span>
+          </p>
+          <div className="relative">
+            <DatePicker />
+            {" - "}
+            <DatePicker />
+            {/* <DayPicker
+              mode="single"
+              // captionLayout="dropdown"
+              today={Date()}
+              selected={selected}
+              onSelect={setSelected}
+              footer={
+                selected
+                  ? `Selected: ${selected.toLocaleDateString()}`
+                  : "Pick a day."
+              }
+              classNames={{
+                // today: `relative before:absolute before:z-[0] before:inset-0 before:bg-green-400  before:rounded-full`, // Add a border to today's date
+                today: `text-purple-700`, // Add a border to today's date
+                selected: `bg-purple-100 outline outline-purple-400 outline-[2px] `, // Highlight the selected day
+                root: ` w-[16rem] rounded-xl shadow-lg p-2 border border-gray-400 select-none`, // Add a shadow to the root element
+                chevron: `w-5`, // Change the color of the chevron
+                day: `w-3 h-7 relative rounded-full `,
+                month: `w-full  `,
+                months: "relative w-full",
+                month_grid: ` w-full  `,
+                day_button: "rounded-full w-auto absolute inset-0 text-center ",
+                weekday: "w-8 h-8 font-[600]",
+                footer: "mt-1 pt-1 border-t border-gray-400",
+                years_dropdown: "bg-red-300",
+              }}
+            /> */}
+          </div>
+        </div>
+        <div className="assignees flex items-center ">
+          <p className="flex items-center gap-2 w-32">
             <FontAwesomeIcon
               icon={faUser}
               className="text-base text-gray-600 -mt-[1px] "
@@ -93,49 +175,36 @@ export default function index({ title }) {
             />
           </div>
         </div>
-        <div className="status flex items-center gap-5">
-          <p className="flex items-center gap-2">
+
+        <div className="priority flex items-center ">
+          <p className="flex items-center gap-2 w-32">
             <FontAwesomeIcon
-              icon={faCalendar}
+              icon={faFlag}
               className="text-base text-gray-600 -mt-[1px] "
             />
-            <span>Date</span>
+            <span>Priority</span>
           </p>
-          {/* <div className="min-w-52">
+          <div className="relative">
             <Select
-              defaultValue={[colourOptions[2], colourOptions[3]]}
-              isMulti
+              defaultValue={priorityOptions[0]}
               name="colors"
-              options={colourOptions}
+              //   isClearable
+              options={priorityOptions}
               className="basic-multi-select"
               classNamePrefix="select"
             />
-          </div> */}
-          <div className=" w-52 ">
-            <DayPicker
-              mode="single"
-              today={Date()}
-              selected={selected}
-              onSelect={setSelected}
-              footer={
-                selected
-                  ? `Selected: ${selected.toLocaleDateString()}`
-                  : "Pick a day."
-              }
-              classNames={{
-                // today: `relative before:absolute before:z-[0] before:inset-0 before:bg-green-400  before:rounded-full`, // Add a border to today's date
-                // today: `bg-green-400/30`, // Add a border to today's date
-                selected: `text-white rounded-full border border-blue-400`, // Highlight the selected day
-                root: ` w-[18rem] h-[18rem] bg-white rounded-xl shadow-lg p-3`, // Add a shadow to the root element
-                // chevron: `${defaultClassNames.chevron} `, // Change the color of the chevron
-                day: `w-8 h-8   relative `,
-                month: `w-full  `,
-                months: "relative w-full",
-                month_grid: ` w-full  `,
-                day_button: " w-auto absolute inset-0 text-center ",
-                weekday: "w-8 h-8 font-normal",
-              }}
+          </div>
+        </div>
+        <div className="priority flex items-center ">
+          <p className="flex items-center gap-2 w-32">
+            <FontAwesomeIcon
+              icon={faTag}
+              className="text-base text-gray-600 -mt-[1px] "
             />
+            <span>Tags</span>
+          </p>
+          <div className="relative">
+            <TagSelector />
           </div>
         </div>
       </div>

@@ -47,8 +47,8 @@ const navigationList = [
     icon: <FontAwesomeIcon icon={faHome} className="text-base h-4 w-5" />,
   },
   {
-    label: "Notification",
-    href: "/notificaion",
+    label: "Notifications",
+    href: "/notificaions",
     icon: (
       <FontAwesomeIcon icon={faBell} className="text-base h-4 w-5 mt-[2px]" />
     ),

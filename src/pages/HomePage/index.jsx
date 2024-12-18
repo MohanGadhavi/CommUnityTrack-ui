@@ -23,6 +23,7 @@ import {
   faCircleDot,
 } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const eventList = [
   {
@@ -173,8 +174,10 @@ function HomeCards({
 
 export default function HomePage() {
   // const [activeTab, setActiveTab] = useState("tasks");
-  // const [showHidden, setShowHidden] = useState(false);
+  // const [showHidden, setShowHidden] = useState(false)
 
+  const user = useSelector((state) => state.auth.user);
+  console.log("user::: ", user);
   const tabRef = useRef(null);
 
   const data = [
@@ -234,7 +237,9 @@ export default function HomePage() {
       <div className="p-6 ">
         {/* greeting */}
         <div>
-          <h3 className="px-2 text-3xl font-">Good Morning, User</h3>
+          <h3 className="px-2 text-3xl font-">
+            Good Morning, {user.firstName}
+          </h3>
         </div>
 
         {/* cardSection */}

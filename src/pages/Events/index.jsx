@@ -44,7 +44,11 @@ const Events = () => {
       </div>
       <div className="px-2">
         {eventList.map((event, i) => (
-          <Accordion key={i} open={open === i} icon={<Icon id={1} />}>
+          <Accordion
+            key={i}
+            open={open === i}
+            icon={<Icon id={i} open={open} />}
+          >
             <AccordionHeader onClick={() => handleOpen(i)}>
               {event}
             </AccordionHeader>

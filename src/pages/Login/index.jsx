@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import {
   Card,
   Input,
@@ -7,15 +10,72 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import api from "../../utils/api";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../../store/auth";
 
-function Login({ setIsLogin }) {
+function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLogin(true);
-    navigate("/home");
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setIsLogin(true);
+  //   navigate("/home");
+  // };
+
+  const formik = useFormik({
+    initialValues: {
+      email: "test@gmail.com",
+      password: "test2@gmail",
+      acceptTerms: true,
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
+      password: Yup.string().required("Password is required"),
+      acceptTerms: Yup.boolean()
+        .oneOf([true], "You must accept the terms and conditions")
+        .required("Required"),
+    }),
+    onSubmit: async (values, { setSubmitting, setFieldError }) => {
+      const payload = {
+        email: values.email,
+        password: values.password,
+        termsAndCondtion: values.acceptTerms,
+      };
+      console.log("loginPayloaf::: ", payload);
+
+      try {
+        // const response = await axios.post(
+        //   "http://localhost:4000/api/v1/user/login",
+        //   payload
+        // );
+        const response = await api.post("/user/login", payload);
+        if (response.data.success && response.data.user) {
+          dispatch(loginSuccess(response.data.user));
+        }
+
+        // Assuming API returns a session token
+        const token = response.data.token;
+
+        console.log("LoginResponse::: ", response);
+        console.log("LoginToken::: ", token);
+
+        // Save token in localStorage
+        // localStorage.setItem("authToken", token);
+
+        // Redirect to Home page
+        navigate("/home");
+      } catch (error) {
+        setFieldError("general", "Invalid email or password");
+        console.log("login Error:::: ", error);
+      } finally {
+        setSubmitting(false);
+      }
+    },
+  });
 
   return (
     <Card
@@ -29,33 +89,47 @@ function Login({ setIsLogin }) {
       </Typography>
       <form
         className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
-        onSubmit={handleSubmit}
+        onSubmit={formik.handleSubmit}
       >
         <div className="mb-1 flex flex-col gap-6">
-          <Typography variant="h6" className="-mb-3">
-            Username
-          </Typography>
-          <Input
-            type="tel"
-            size="lg"
-            placeholder="+91 123456789"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
-          />
-          <Typography variant="h6" className="-mb-3">
-            Password
-          </Typography>
-          <Input
-            type="password"
-            size="lg"
-            placeholder="********"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
-          />
+          <div>
+            <p className="mb-1">Username</p>
+            <Input
+              type="email"
+              size="lg"
+              placeholder="example@email.com"
+              className=" !border !border-gray-500 bg-white ring-2 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+              labelProps={{
+                className: "hidden before:content-none after:content-none",
+              }}
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <p className="text-red-400 text-sm">{formik.errors.email}</p>
+            ) : null}
+          </div>
+          <div>
+            <p className="mb-1">Password</p>
+            <Input
+              type="password"
+              size="lg"
+              placeholder="********"
+              className=" !border !border-gray-500 bg-white ring-2 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+              labelProps={{
+                className: " hidden before:content-none after:content-none",
+              }}
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.password && formik.errors.password ? (
+              <p className="text-red-400 text-sm">{formik.errors.password}</p>
+            ) : null}
+          </div>
         </div>
         <Checkbox
           label={
@@ -74,9 +148,25 @@ function Login({ setIsLogin }) {
             </Typography>
           }
           containerProps={{ className: "-ml-2.5" }}
+          name="acceptTerms"
+          checked={formik.values.acceptTerms}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
-        <Button type="submit" className="mt-6" variant="gradient" fullWidth>
-          Log in
+        {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
+          <p className="text-red-400 text-sm">{formik.errors.acceptTerms}</p>
+        ) : null}
+        {formik.errors.general && (
+          <p className="text-red-400 text-sm">{formik.errors.general}</p>
+        )}
+        <Button
+          type="submit"
+          className="mt-6"
+          variant="gradient"
+          fullWidth
+          disabled={formik.isSubmitting}
+        >
+          {formik.isSubmitting ? "Logging in..." : "Login"}
         </Button>
         {/* <Typography color="gray" className="mt-4 text-center font-normal">
           Already have an account?{" "}
