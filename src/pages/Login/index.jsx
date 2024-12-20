@@ -48,23 +48,17 @@ function Login() {
       console.log("loginPayloaf::: ", payload);
 
       try {
-        // const response = await axios.post(
-        //   "http://localhost:4000/api/v1/user/login",
-        //   payload
-        // );
         const response = await api.post("/user/login", payload);
-        if (response.data.success && response.data.user) {
-          dispatch(loginSuccess(response.data.user));
-        }
 
-        // Assuming API returns a session token
         const token = response.data.token;
+        // Save token in localStorage
+        localStorage.setItem("authToken", response.data.token);
+
+        // Dispatch login success
+        dispatch(loginSuccess(response.data.user));
 
         console.log("LoginResponse::: ", response);
         console.log("LoginToken::: ", token);
-
-        // Save token in localStorage
-        // localStorage.setItem("authToken", token);
 
         // Redirect to Home page
         navigate("/home");
@@ -81,7 +75,7 @@ function Login() {
     <Card
       color="transparent"
       shadow={false}
-      className="w-min mx-auto mt-10 p-5 px-10 bg-gray-100 border-2 border-black flex flex-col items-start drop-shadow-2xl "
+      className="w-min absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5 px-10 bg-gray-100 border-2 border-black flex flex-col items-start drop-shadow-2xl "
     >
       <Typography variant="h4">Log in</Typography>
       <Typography className="mt-1 font-normal">
@@ -160,8 +154,9 @@ function Login() {
           <p className="text-red-400 text-sm">{formik.errors.general}</p>
         )}
         <Button
+          loading={formik.isSubmitting}
           type="submit"
-          className="mt-6"
+          className="mt-6 justify-center"
           variant="gradient"
           fullWidth
           disabled={formik.isSubmitting}

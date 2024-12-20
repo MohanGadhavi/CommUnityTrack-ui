@@ -4,15 +4,43 @@ import Registration from "./pages/Registration/index";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Tasks from "./pages/Tasks";
 import Event from "./pages/Events";
 import Dashboard from "./pages/Dashboard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { jwtDecode } from "jwt-decode";
+import api from "./utils/api";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   console.log("isAuthenticated::::: ", isAuthenticated);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    if (token) {
+      try {
+        // Optionally verify the token by making a request to the server
+        api
+          .get("/user/verify-token")
+          .then((res) => {
+            console.log("resssssssssssss ", res);
+            dispatch(loginSuccess(res.data.user));
+          })
+          .catch(() => {
+            localStorage.removeItem("authToken"); // Remove invalid token
+            console.log("error while verifying token");
+          });
+      } catch (error) {
+        console.log("Invalid token:", error);
+        console.error("Invalid token:", error);
+        localStorage.removeItem("authToken"); // Remove corrupted token
+      }
+    }
+  }, [dispatch]);
 
   return (
     <div className=" flex">
