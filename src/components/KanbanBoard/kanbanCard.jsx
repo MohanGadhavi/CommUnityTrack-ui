@@ -12,6 +12,7 @@ import { Dialog, DialogBody } from "@material-tailwind/react";
 import TaskCard from "../TaskCard";
 
 const tags = ["Meeting", "Urgent", "stayFocused"];
+
 export default function KanbanCard({ title, id, column, handleDragStart }) {
   const [openDialog, setOpenDialog] = useState(false);
 
@@ -19,7 +20,7 @@ export default function KanbanCard({ title, id, column, handleDragStart }) {
 
   return (
     <>
-      <KanbanDropIndicator beforeId={id} column={column} />
+      {/* <KanbanDropIndicator beforeId={id} column={column} /> */}
       <motion.div
         onClick={handleOpenDialog}
         layout

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -13,8 +13,12 @@ import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../../store/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -26,8 +30,8 @@ function Login() {
 
   const formik = useFormik({
     initialValues: {
-      email: "test@gmail.com",
-      password: "test2@gmail",
+      email: "admin@gmail.com",
+      password: "admin1234",
       acceptTerms: true,
     },
     validationSchema: Yup.object({
@@ -107,19 +111,34 @@ function Login() {
           </div>
           <div>
             <p className="mb-1">Password</p>
-            <Input
-              type="password"
-              size="lg"
-              placeholder="********"
-              className=" !border !border-gray-500 bg-white ring-2 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-              labelProps={{
-                className: " hidden before:content-none after:content-none",
-              }}
-              name="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
+            <div className="relative w-full">
+              <Input
+                type={showPassword ? "text" : "password"}
+                size="lg"
+                placeholder="********"
+                className=" !border !border-gray-500 bg-white ring-2 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                labelProps={{
+                  className: " hidden before:content-none after:content-none",
+                }}
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 flex items-center px-2"
+                onMouseDown={() => setShowPassword(true)}
+                onMouseUp={() => setShowPassword(false)}
+                onMouseLeave={() => setShowPassword(false)}
+              >
+                {showPassword ? (
+                  <FontAwesomeIcon icon={faEyeSlash} />
+                ) : (
+                  <FontAwesomeIcon icon={faEye} />
+                )}
+              </button>
+            </div>
             {formik.touched.password && formik.errors.password ? (
               <p className="text-red-400 text-sm">{formik.errors.password}</p>
             ) : null}

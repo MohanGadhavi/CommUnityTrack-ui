@@ -178,52 +178,52 @@ export default function HomePage() {
 
   const user = useSelector((state) => state.auth.user);
   console.log("user::: ", user);
-  const tabRef = useRef(null);
+  // const tabRef = useRef(null);
 
-  const data = [
-    {
-      label: "Tasks",
-      value: "tasks",
-      extraInfo: "Tasks",
-      icon: faListCheck,
-      desc: <Tasks />,
-    },
-    {
-      label: "Events",
-      value: "events",
-      extraInfo: "Upcoming Events",
-      icon: faCalendarCheck,
-      desc: <Events />,
-    },
-    {
-      label: "Dashboard",
-      value: "dashboard",
-      extraInfo: "Dashboard",
-      icon: faChartSimple,
-      desc: `It really matters and then like it really doesn't matter.
-          What matters is the people who are sparked by it. And the people
-          who are like offended by it, it doesn't matter.`,
-    },
+  // const data = [
+  //   {
+  //     label: "Tasks",
+  //     value: "tasks",
+  //     extraInfo: "Tasks",
+  //     icon: faListCheck,
+  //     desc: <Tasks />,
+  //   },
+  //   {
+  //     label: "Events",
+  //     value: "events",
+  //     extraInfo: "Upcoming Events",
+  //     icon: faCalendarCheck,
+  //     desc: <Events />,
+  //   },
+  //   {
+  //     label: "Dashboard",
+  //     value: "dashboard",
+  //     extraInfo: "Dashboard",
+  //     icon: faChartSimple,
+  //     desc: `It really matters and then like it really doesn't matter.
+  //         What matters is the people who are sparked by it. And the people
+  //         who are like offended by it, it doesn't matter.`,
+  //   },
 
-    {
-      label: "Activities",
-      value: "activities",
-      extraInfo: "Personal Activities",
-      icon: faClockRotateLeft,
-      desc: `We're not always in the position that we want to be at.
-          We're constantly growing. We're constantly making mistakes. We're
-          constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Data Feeder",
-      value: "data-feeder",
-      extraInfo: "Update your activity",
-      icon: faFilePen,
-      desc: <DataFeeder />,
-      ref: tabRef,
-      canHide: true,
-    },
-  ];
+  //   {
+  //     label: "Activities",
+  //     value: "activities",
+  //     extraInfo: "Personal Activities",
+  //     icon: faClockRotateLeft,
+  //     desc: `We're not always in the position that we want to be at.
+  //         We're constantly growing. We're constantly making mistakes. We're
+  //         constantly trying to express ourselves and actualize our dreams.`,
+  //   },
+  //   {
+  //     label: "Data Feeder",
+  //     value: "data-feeder",
+  //     extraInfo: "Update your activity",
+  //     icon: faFilePen,
+  //     desc: <DataFeeder />,
+  //     ref: tabRef,
+  //     canHide: true,
+  //   },
+  // ];
 
   return (
     <div className=" ">
@@ -238,7 +238,8 @@ export default function HomePage() {
         {/* greeting */}
         <div>
           <h3 className="px-2 text-3xl font-">
-            Good Morning, {user.firstName}
+            Good Morning, {user.firstName}{" "}
+            <span className="opacity-40 text-xl ">({user.userType})</span>
           </h3>
         </div>
 

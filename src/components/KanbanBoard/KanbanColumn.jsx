@@ -9,7 +9,6 @@ export default function KanbanColumn({
   cards,
   column,
   setCards,
-  AddCard,
 }) {
   const colorList = {
     red: "bg-red-400",
@@ -122,37 +121,40 @@ export default function KanbanColumn({
   };
 
   const filteredCards = cards.filter((c) => c.column === column);
+
   return (
     <div
       className={` p-2  rounded-md ${columnColor} border border-gray-300 ${
         active ? `bg-opacity-50` : `bg-opacity-20`
       }  `}
     >
+      {/* column header */}
       <div className=" p-2 flex items-center justify-between border-b border-gray-500  ">
         <h3
           className={`font-medium ${columnColor} bg-opacity-60 px-3 rounded-sm text-black`}
         >
           {title}
         </h3>
-        <span className="w-5 h-5 text-center rounded-full text-sm bg-white/50">
+        <span className="w-5 h-5 text-center rounded-full text-sm bg-white/70">
           {filteredCards.length}
         </span>
       </div>
+
+      {/* column body */}
       <div
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={` w-full p-2 transition-colors`}
+        className={` w-full pt-2 transition-colors ease-linear flex flex-col gap-2   `}
       >
-        {filteredCards.map((c) => {
+        {filteredCards.map((c, i) => {
           return (
-            <div className="  max-w-[15rem] ">
+            <div className=" max-w-[15rem] " key={i}>
               <KanbanCard key={c.id} {...c} handleDragStart={handleDragStart} />
             </div>
           );
         })}
         <KanbanDropIndicator beforeId={null} column={column} />
-        <AddCard column={column} setCards={setCards} />
       </div>
     </div>
   );
