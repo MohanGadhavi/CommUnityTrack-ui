@@ -49,7 +49,7 @@ const kanbanColumns = [
   },
   {
     title: "In Progress",
-    column: "inProgress",
+    column: "in_progress",
     color: "blue",
   },
   {
@@ -67,7 +67,7 @@ const Board = ({ taskList }) => {
       {kanbanColumns.map((col, i) => (
         <KanbanColumn
           key={i}
-          cards={cards}
+          cards={taskList}
           setCards={setCards}
           title={col.title}
           column={col.column}

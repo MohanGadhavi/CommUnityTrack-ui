@@ -1,7 +1,13 @@
 import { format } from "date-fns";
 import React, { useRef, useState } from "react";
 
-export default function DatePicker({ hideIcon = 1 }) {
+export default function DatePicker({
+  hideIcon = true,
+  name,
+  value,
+  onChange,
+  onBlur,
+}) {
   const inputRef = useRef(null);
   const handleInputClick = (e) => {
     if (inputRef.current) {
@@ -18,6 +24,10 @@ export default function DatePicker({ hideIcon = 1 }) {
       }`}
       type="date"
       onClick={handleInputClick}
+      name={name}
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
     />
   );
 }

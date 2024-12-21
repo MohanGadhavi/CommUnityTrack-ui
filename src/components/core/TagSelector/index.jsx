@@ -21,6 +21,7 @@ export default function TagSelector({ isReadOnly }) {
 
   return (
     <Select
+      isDisabled={isReadOnly}
       defaultValue={[tagList[2], tagList[3]]}
       isMulti
       name="colors"

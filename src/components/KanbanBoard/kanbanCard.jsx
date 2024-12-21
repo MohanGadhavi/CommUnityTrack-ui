@@ -9,11 +9,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { Dialog, DialogBody } from "@material-tailwind/react";
-import TaskCard from "../TaskCard";
+import TaskDialog from "../TaskDialog";
 
 const tags = ["Meeting", "Urgent", "stayFocused"];
 
-export default function KanbanCard({ title, id, column, handleDragStart }) {
+export default function KanbanCard({ title, _id, status, handleDragStart }) {
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleOpenDialog = () => setOpenDialog(!openDialog);
@@ -24,9 +24,9 @@ export default function KanbanCard({ title, id, column, handleDragStart }) {
       <motion.div
         onClick={handleOpenDialog}
         layout
-        layoutId={id}
+        layoutId={_id}
         draggable="true"
-        onDragStart={(e) => handleDragStart(e, { title, id, column })}
+        onDragStart={(e) => handleDragStart(e, { title, _id, status })}
         className="cursor-grab rounded-md border border-gray-400 bg-white p-3 active:cursor-grabbing"
       >
         <p className="text-sm font-semibold ">{title}</p>
@@ -68,11 +68,12 @@ export default function KanbanCard({ title, id, column, handleDragStart }) {
           </div>
         </div>
       </motion.div>
-      <Dialog open={openDialog} handler={handleOpenDialog} size="xl">
-        <DialogBody className="p-0">
-          <TaskCard title={title} />
-        </DialogBody>
-      </Dialog>
+
+      <TaskDialog
+        title={title}
+        openDialog={openDialog}
+        handleOpenDialog={handleOpenDialog}
+      />
     </>
   );
 }
