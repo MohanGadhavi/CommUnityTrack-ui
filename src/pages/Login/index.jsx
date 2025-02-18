@@ -49,7 +49,7 @@ function Login() {
         password: values.password,
         termsAndCondtion: values.acceptTerms,
       };
-      console.log("loginPayloaf::: ", payload);
+      console.log("loginPayload::: ", payload);
 
       try {
         const response = await api.post("/user/login", payload);
@@ -79,7 +79,7 @@ function Login() {
     <Card
       color="transparent"
       shadow={false}
-      className="w-min absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5 px-10 bg-gray-100 border-2 border-black flex flex-col items-start drop-shadow-2xl "
+      className="animate-fadeIn w-min absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5 px-10 bg-gray-100 border-2 border-black flex flex-col items-start drop-shadow-2xl "
     >
       <Typography variant="h4">Log in</Typography>
       <Typography className="mt-1 font-normal">

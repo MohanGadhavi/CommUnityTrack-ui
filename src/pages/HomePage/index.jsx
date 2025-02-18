@@ -7,9 +7,6 @@ import {
   faClockRotateLeft,
   faDownLeftAndUpRightToCenter,
   faEllipsis,
-  faFilePen,
-  faHome,
-  faListCheck,
   faUpRightAndDownLeftFromCenter,
   faUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
@@ -70,6 +67,18 @@ const taskList = [
   },
 ];
 
+const getCurrentGreeting = () => {
+  const now = new Date();
+  const hours = now.getHours();
+  if (hours < 12) {
+    return "Good Morning";
+  } else if (hours < 18) {
+    return "Good Afternoon";
+  } else {
+    return "Good Evening";
+  }
+};
+
 function HomeCards({
   title,
   href,
@@ -86,7 +95,7 @@ function HomeCards({
 
   return (
     <div
-      className={`min-h-64 max-h-full p-3 bg-gray-200 rounded-md border border-gray-300 shadow-sm ${className}`}
+      className={`min-h-64 max-h-full p-3 bg-purple-50 rounded-md border border-gray-400 ${className}`}
     >
       {/* header */}
       <div className="pb-2 flex justify-between items-center border-b border-gray-500">
@@ -228,18 +237,18 @@ export default function HomePage() {
   return (
     <div className=" ">
       {/* header */}
-      <div className="h-14 py-2 px-4 border-b flex items-center gap-2 bg-gray-50 sticky top-0">
+      {/* <div className="h-14 py-2 px-4 border-b flex items-center gap-2 bg-gray-50 sticky top-0">
         <FontAwesomeIcon icon={faHome} className="text-sm" />
         <p className="pt-[4px]">Home</p>
-      </div>
+      </div> */}
 
       {/* main */}
-      <div className="p-6 ">
+      <div className="">
         {/* greeting */}
         <div>
           <h3 className="px-2 text-3xl font-">
-            Good Morning, {user.firstName}{" "}
-            <span className="opacity-40 text-xl ">({user.userType})</span>
+            {getCurrentGreeting()}, {user.firstName}
+            <span className="opacity-40 text-xl "> ({user.userType})</span>
           </h3>
         </div>
 

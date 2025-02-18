@@ -25,8 +25,9 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
+import { logout } from "../../../store/auth";
 
-const UserProfile = ({ userName, ppUrl }) => {
+const UserProfile = ({ userName, ppUrl, customClassName }) => {
   const [openProfile, setOpenProfile] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -38,18 +39,18 @@ const UserProfile = ({ userName, ppUrl }) => {
   const navigate = useNavigate();
 
   // Fetch profile data
-  useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const response = await api.get("/user/me");
-        setUserProfile(response.data);
-      } catch (error) {
-        console.error("Error fetching profile data", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchUserProfile = async () => {
+  //     try {
+  //       const response = await api.get("/user/me");
+  //       setUserProfile(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching profile data", error);
+  //     }
+  //   };
 
-    fetchUserProfile();
-  }, []);
+  //   fetchUserProfile();
+  // }, []);
 
   // Handle edit profile
   const handleEditProfile = async () => {
@@ -84,7 +85,7 @@ const UserProfile = ({ userName, ppUrl }) => {
     <>
       <Accordion
         open={openProfile}
-        className="border border-gray-400 rounded-lg shadow-lg bg-purple-50"
+        className={`border border-gray-400 rounded-lg shadow-lg bg-purple-50 ${customClassName}`}
         icon={
           <FontAwesomeIcon
             icon={faAngleDown}
@@ -238,21 +239,24 @@ const UserProfile = ({ userName, ppUrl }) => {
       <Dialog
         open={confirmLogout}
         handler={() => setConfirmLogout(!confirmLogout)}
+        size="sm"
       >
-        <DialogBody>
+        <DialogBody className="py-5 px-8">
           <div className="text-center">
             <FontAwesomeIcon
               icon={faCircleExclamation}
               className="text-5xl text-red-400"
             />
-            <p className="text-xl font-semibold mt-3">Are you sure?</p>
-            <p className="text-gray-500 mt-1">
+            <p className="text-xl font-semibold mt-3 text-gray-800">
+              Are you sure?
+            </p>
+            <p className="text-gray-600 mt-1">
               You will be logged out and redirected to the login screen.
             </p>
-            <div className="mt-5 flex justify-around">
+            <div className="mt-5 flex justify-end gap-2">
               <Button
-                variant="text"
-                color="gray"
+                variant="outlined"
+                color="black"
                 onClick={() => setConfirmLogout(false)}
               >
                 Cancel

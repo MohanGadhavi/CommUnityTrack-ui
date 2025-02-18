@@ -122,7 +122,7 @@ export default function index({
       status: statusOptions[0],
       start_date: "",
       end_date: "",
-      relationship: "",
+      relationship: {},
       assignees: [],
       priority: "",
     },

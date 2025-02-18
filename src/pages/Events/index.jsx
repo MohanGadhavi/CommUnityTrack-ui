@@ -38,10 +38,10 @@ const Events = () => {
   const handleOpen = (value) => setOpen(open === value ? -1 : value);
   return (
     <div className="w-full">
-      <div className="h-14 py-2 px-4 border-b flex items-center gap-2 bg-gray-50 sticky top-0 z-50">
+      {/* <div className="h-14 py-2 px-4 border-b flex items-center gap-2 bg-gray-50 sticky top-0 z-50">
         <FontAwesomeIcon icon={faCalendarDays} className="text-sm" />
         <p className="pt-[2px]">Events</p>
-      </div>
+      </div> */}
       <div className="px-2">
         {eventList.map((event, i) => (
           <Accordion
